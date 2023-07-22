@@ -40,14 +40,14 @@ const defaultAffairs: AffairType[] = [
 export const filterAffairs = (
   affairs: AffairType[],
   filter: FilterType
-): any => {
+): AffairType[] => {
   if (filter === "all") {
     return affairs;
   }
   // need to fix any
   return affairs.filter((el) => el.priority === filter); // need to fix
 };
-export const deleteAffair = (affairs: AffairType[], _id: number): any => {
+export const deleteAffair = (affairs: AffairType[], _id: number): AffairType[] => {
   // need to fix any
   const newArr = affairs.filter((el: AffairType) => el._id !== _id);
   return newArr;
