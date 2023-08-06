@@ -9,6 +9,7 @@ import s from './SuperCheckbox.module.css'
 type DefaultInputPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>,
     HTMLInputElement>
 
+
 type SuperCheckboxPropsType = Omit<DefaultInputPropsType, 'type'> & {
     onChangeChecked?: (checked: boolean) => void
     spanClassName?: string
@@ -28,7 +29,18 @@ const SuperCheckbox: React.FC<SuperCheckboxPropsType> = (
 ) => {
     const onChangeCallback = (e: ChangeEvent<HTMLInputElement>) => {
         // задачка на написание онченджа
+        // const checked = e.currentTarget.checked
 
+        // onChange(checked)
+        if (onChangeChecked) {
+            onChangeChecked(e.currentTarget.checked)
+        }
+        if(onChange) {
+            onChange(e)
+        }
+        // (e) => setChecked(e.currentTarget.checked)
+        // onChange(e.currentTarget.checked)
+        console.log(e.currentTarget.checked)
     }
 
     const finalInputClassName = s.checkbox
