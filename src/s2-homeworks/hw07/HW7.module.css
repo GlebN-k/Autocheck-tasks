@@ -1,2 +1,12 @@
 .container {
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 50px;
+    /*flex-direction: column;*/
+}
+
+.containerRadioBtn {
+    display: flex;
+    flex-direction: column;
 }

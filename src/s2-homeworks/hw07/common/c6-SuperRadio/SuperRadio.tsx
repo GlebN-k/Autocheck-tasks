@@ -23,7 +23,7 @@ type SuperRadioPropsType = Omit<DefaultRadioPropsType, 'type'> & {
     spanProps?: DefaultSpanPropsType // пропсы для спана
 }
 
-const SuperRadio: React.FC<SuperRadioPropsType> = ({
+const   SuperRadio: React.FC<SuperRadioPropsType> = ({
     id,
     name,
     className,
@@ -36,8 +36,10 @@ const SuperRadio: React.FC<SuperRadioPropsType> = ({
 }) => {
     const onChangeCallback = (e: ChangeEvent<HTMLInputElement>) => {
         // делают студенты
+        // console.log(e.currentTarget.id.slice(-1))
+        if(onChangeOption) onChangeOption(e.currentTarget.id.slice(-1))
     }
-
+    console.log(value)
     const finalRadioClassName = s.radio + (className ? ' ' + className : '')
     const spanClassName = s.span + (spanProps?.className ? ' ' + spanProps.className : '')
 
@@ -48,6 +50,9 @@ const SuperRadio: React.FC<SuperRadioPropsType> = ({
                       id={id + '-input-' + o.id}
                       className={finalRadioClassName}
                       type={'radio'}
+                      name={'course'}
+                      checked={value == o.id}
+
                       // name, checked, value делают студенты
 
                       onChange={onChangeCallback}
