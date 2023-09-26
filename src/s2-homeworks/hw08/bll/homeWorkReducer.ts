@@ -8,8 +8,8 @@ export const homeWorkReducer = (state: any, action: ActionType): any => { // nee
     switch (action.type) {
         case 'sort': { // by name
             return action.payload === 'up'
-                ? [...state].sort((a, b) => a.age - b.age)
-                : [...state].sort((a, b) => b.age - a.age)
+                ? [...state].sort((a, b) => b.age - a.age)
+                : [...state].sort((a, b) => a.age - b.age)
         }
         case 'check': {
 
